@@ -195,6 +195,6 @@ public class UserSignUpActivity extends AppCompatActivity {
 
 
 //HIDE ACTIONBAR
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
     }
 }

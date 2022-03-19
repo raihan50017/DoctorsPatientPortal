@@ -105,6 +105,6 @@ public class UserSignInActivity extends AppCompatActivity {
         });
 
 //HIDING ACTIONBAR
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
     }
 }

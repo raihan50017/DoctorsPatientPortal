@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/profile"
+        android:title="Profile">
+    </item>
+    <item android:id="@+id/edit_profile"
+        android:title="Edit Profile">
+    </item>
+    <item android:id="@+id/my_appointment"
+        android:title="My Appointment">
+    </item>
+    <item android:id="@+id/all_doctors"
+        android:title="All Doctors">
+    </item>
+    <item android:id="@+id/notification"
+        android:title="Notification">
+    </item>
+    <item android:id="@+id/messaging"
+        android:title="Messaging">
+    </item>
+</menu>
