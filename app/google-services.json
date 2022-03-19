@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "277240999869",
+    "firebase_url": "https://doctorspatientportal-default-rtdb.firebaseio.com",
+    "project_id": "doctorspatientportal",
+    "storage_bucket": "doctorspatientportal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277240999869:android:eae3f54bc0cd770f6fecd4",
+        "android_client_info": {
+          "package_name": "com.medicine.doctorspatientportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277240999869-s00dq5lbc0fui1g3occ827l0uh2m5con.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs89Ccx01l408AQ8-54RkdbL9qM8onilU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277240999869-s00dq5lbc0fui1g3occ827l0uh2m5con.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
