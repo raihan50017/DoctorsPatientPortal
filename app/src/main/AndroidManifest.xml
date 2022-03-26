@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoctorsPatientPortal">
         <activity
+            android:name=".EditDoctorProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DoctorDetailInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".DoctorProfileActivity"
             android:exported="true" />
         <activity

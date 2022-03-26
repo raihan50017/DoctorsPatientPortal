@@ -7,9 +7,11 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/card_bg.xml" value="0.165234375" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/post_button_bg.xml" value="0.165234375" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_creating_post.xml" value="0.1546875" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_detail_info.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_home.xml" value="0.142578125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_profile.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctors_category_list.xml" value="0.11979166666666667" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_edit_doctor_profile.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_home.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
