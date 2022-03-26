@@ -23,12 +23,15 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,8 +44,11 @@ public class UserSignUpActivity extends AppCompatActivity {
     LinearLayout birthdate;
     TextView dateshow;
     AutoCompleteTextView genderselect;
+    AutoCompleteTextView membertypeselect;
     ArrayAdapter<String> adapterItems;
+    ArrayAdapter<String> membertypes;
     String[] items = {"Male", "Female", "Others"};
+    String[] membertypsemenu = {"Patient", "Doctor"};
     TextInputEditText fullnameinput;
     TextInputEditText mobileinput;
     TextInputEditText emailinput;
@@ -51,6 +57,8 @@ public class UserSignUpActivity extends AppCompatActivity {
     TextView signin;
     String birth_date;
     Button signup;
+    String membertype;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +75,8 @@ public class UserSignUpActivity extends AppCompatActivity {
         item = genderselect.getText().toString();
         signin = findViewById(R.id.signin);
         signup = findViewById(R.id.signup);
+        membertypeselect = findViewById(R.id.member_type_select);
+        membertype = membertypeselect.getText().toString();
 
 
 //EXTRACT TEXT STRING
@@ -111,6 +121,7 @@ public class UserSignUpActivity extends AppCompatActivity {
 
                     FirebaseAuth auth = FirebaseAuth.getInstance();
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    String reference;
                     DatabaseReference databaseref = database.getReference("users");
 
                     auth.createUserWithEmailAndPassword(email_input, password_input).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -118,14 +129,15 @@ public class UserSignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(UserSignUpActivity.this, "Signup successfull", Toast.LENGTH_LONG).show();
-
+                                firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
                                 Map<String, Object> user = new HashMap<String, Object>();
                                 user.put("fullName",fullname_input);
                                 user.put("mobile", mobile_input);
                                 user.put("email", email_input);
                                 user.put("birthDate", birth_date);
                                 user.put("gender", item);
-                                databaseref.child(String.valueOf(System.currentTimeMillis())).setValue(user);
+                                user.put("memberType", membertype);
+                                databaseref.child(firebaseUser.getUid()).setValue(user);
                                 Intent intent = new Intent(UserSignUpActivity.this, UserSignInActivity.class);
                                 startActivity(intent);
                             }
@@ -142,6 +154,9 @@ public class UserSignUpActivity extends AppCompatActivity {
 
 
 //DATE PICKER
+        CalendarConstraints.Builder constraintsBuilder =
+                new CalendarConstraints.Builder()
+                        .setValidator(DateValidatorPointForward.now());
 
         MaterialDatePicker datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select date")
@@ -192,6 +207,18 @@ public class UserSignUpActivity extends AppCompatActivity {
                //Toast.makeText(UserSignUpActivity.this, item, Toast.LENGTH_LONG).show();
            }
        });
+
+//MEMBER TYPE SELECT MENU
+
+        membertypes = new ArrayAdapter<String>(this,R.layout.menu_adapter,membertypsemenu);
+        membertypeselect.setAdapter(membertypes);
+        membertypeselect.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                membertype = (String) parent.getItemAtPosition(position);
+                //Toast.makeText(UserSignUpActivity.this, membertype, Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 //HIDE ACTIONBAR

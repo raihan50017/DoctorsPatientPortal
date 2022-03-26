@@ -3,16 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/border.xml" value="0.17592592592592593" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/card_bg.xml" value="0.165234375" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/post_button_bg.xml" value="0.165234375" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_creating_post.xml" value="0.1546875" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_home.xml" value="0.142578125" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_profile.xml" value="0.153125" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctors_category_list.xml" value="0.11979166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_home.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_take_appointment.xml" value="0.13333333333333333" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_sign_in.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctor_nav_header_layout.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_message.xml" value="0.12239583333333333" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_notification.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_user_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/gender_menu_adapter.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/menu_adapter.xml" value="0.1671875" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/nav_header_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/post_view_item.xml" value="0.1" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/menu/doctors_nav_menu.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/menu/gender_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/menu/nav_menu.xml" value="0.20416666666666666" />
       </map>

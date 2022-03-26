@@ -3,14 +3,8 @@
     <item android:id="@+id/profile"
         android:title="Profile">
     </item>
-    <item android:id="@+id/edit_profile"
-        android:title="Edit Profile">
-    </item>
     <item android:id="@+id/my_appointment"
-        android:title="My Appointment">
-    </item>
-    <item android:id="@+id/all_doctors"
-        android:title="All Doctors">
+        android:title="Appointment List">
     </item>
     <item android:id="@+id/notification"
         android:title="Notification">
@@ -18,7 +12,7 @@
     <item android:id="@+id/messaging"
         android:title="Messaging">
     </item>
-    <item android:id="@+id/user_logout"
+    <item android:id="@+id/logOut"
         android:title="Logout">
     </item>
 </menu>

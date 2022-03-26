@@ -18,6 +18,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.medicine.doctorspatientportal.model.Post;
+import com.medicine.doctorspatientportal.model.User;
 
 public class UserSignInActivity extends AppCompatActivity {
 
@@ -26,6 +34,7 @@ public class UserSignInActivity extends AppCompatActivity {
     TextInputEditText emailinput;
     TextInputEditText passwordinput;
     Button signin;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,12 @@ public class UserSignInActivity extends AppCompatActivity {
         signin = findViewById(R.id.signin);
         emailinput = findViewById(R.id.emailinput);
         passwordinput = findViewById(R.id.passwordinput);
+        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+
+        if(firebaseUser!=null){
+            startActivity(new Intent(UserSignInActivity.this, HomeActivity.class));
+            finish();
+        }
 
 
 //SIGN IN
@@ -66,8 +81,30 @@ public class UserSignInActivity extends AppCompatActivity {
                                     if(task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
                                         Toast.makeText(UserSignInActivity.this, "Login Successfull", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(UserSignInActivity.this, HomeActivity.class);
-                                        startActivity(intent);
+                                        DatabaseReference datbase = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                                        datbase.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                                User user=dataSnapshot.getValue(User.class);
+                                                Intent intent;
+                                                if(user.getMemberType().equals("Patient")){
+                                                    intent = new Intent(UserSignInActivity.this, HomeActivity.class);
+                                                }
+                                                else{
+                                                    intent = new Intent(UserSignInActivity.this, DoctorHomeActivity.class);
+                                                }
+                                                startActivity(intent);
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+
+
                                     }
                                 }
                             }).addOnFailureListener(new OnFailureListener() {

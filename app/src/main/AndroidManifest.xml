@@ -10,14 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoctorsPatientPortal">
         <activity
+            android:name=".DoctorProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DoctorHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CardiologyDoctorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreatingPostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TakeAppointment"
+            android:exported="true" />
+        <activity
+            android:name=".DoctorsCategoryListActivity"
+            android:exported="true" />
+        <activity
             android:name=".UserSignUpActivity"
             android:exported="true" />
         <activity
             android:name=".UserSignInActivity"
-            android:exported="true" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +40,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

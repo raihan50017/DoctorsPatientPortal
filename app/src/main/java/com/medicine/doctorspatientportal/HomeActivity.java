@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import android.widget.Toolbar;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -75,6 +77,16 @@ public class HomeActivity extends AppCompatActivity {
                 if(item.getItemId() == R.id.profile){
                     Toast.makeText(HomeActivity.this, "PROFILE", Toast.LENGTH_SHORT).show();
                 }
+
+                if(item.getItemId() == R.id.user_logout){
+                    FirebaseAuth.getInstance().signOut();
+
+                    Toast.makeText(HomeActivity.this, "Signout successfull", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(HomeActivity.this, UserSignInActivity.class);
+                    startActivity(intent);
+                }
+
                 return false;
             }
         });
