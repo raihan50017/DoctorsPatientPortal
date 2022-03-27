@@ -49,8 +49,29 @@ public class UserSignInActivity extends AppCompatActivity {
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
 
         if(firebaseUser!=null){
-            startActivity(new Intent(UserSignInActivity.this, HomeActivity.class));
-            finish();
+            DatabaseReference datbase = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid());
+
+            datbase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    User user=dataSnapshot.getValue(User.class);
+                    Intent intent;
+                    if(user.getMemberType().equals("Patient")){
+                        intent = new Intent(UserSignInActivity.this, HomeActivity.class);
+                    }
+                    else{
+                        intent = new Intent(UserSignInActivity.this, DoctorHomeActivity.class);
+                    }
+                    startActivity(intent);
+                    finish();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
 
 

@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
 import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -156,11 +157,11 @@ public class UserSignUpActivity extends AppCompatActivity {
 //DATE PICKER
         CalendarConstraints.Builder constraintsBuilder =
                 new CalendarConstraints.Builder()
-                        .setValidator(DateValidatorPointForward.now());
+                        .setValidator(DateValidatorPointBackward.now());
 
         MaterialDatePicker datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select date")
-                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds()).setCalendarConstraints(constraintsBuilder.build())
                 .build();
 
         birthdate.setOnClickListener(new View.OnClickListener() {
