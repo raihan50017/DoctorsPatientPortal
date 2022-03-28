@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoctorsPatientPortal">
         <activity
+            android:name=".DoctorAppointmentListActivity"
+            android:exported="true" />
+        <activity
             android:name=".UserAllAppointmentActivity"
             android:exported="true" />
         <activity
@@ -20,7 +23,7 @@
             android:exported="true" />
         <activity
             android:name=".EditDoctorProfileActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DoctorDetailInfoActivity"
             android:exported="true" />

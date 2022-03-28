@@ -62,8 +62,9 @@ public class AppointTakingActivity extends AppCompatActivity {
                     appointment.put("d_id",intent.getStringExtra("d_id"));
                     appointment.put("status","Not seen");
                     appointment.put("serial","0");
-
-                    databaseReference.child(String.valueOf(System.currentTimeMillis())).setValue(appointment);
+                    String id =  ""+System.currentTimeMillis()+"";
+                    appointment.put("id",id);
+                    databaseReference.child(String.valueOf(id)).setValue(appointment);
 
                     Toast.makeText(AppointTakingActivity.this, "Appoint taken successfully", Toast.LENGTH_LONG).show();
                     Intent intent1 = new Intent(AppointTakingActivity.this, UserAllAppointmentActivity.class);

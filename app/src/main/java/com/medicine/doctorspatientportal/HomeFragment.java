@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.medicine.doctorspatientportal.adapter.PostAdapter;
 import com.medicine.doctorspatientportal.model.Post;
+import com.medicine.doctorspatientportal.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,8 @@ public class HomeFragment extends Fragment {
     PostAdapter adapter;
     ArrayList<Post> postList;
     DatabaseReference databaseReference;
+    LinearLayout doctor_category_layout;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -53,7 +58,31 @@ public class HomeFragment extends Fragment {
         chamber_appointment = view.findViewById(R.id.chamber_appointment);
         others_services = view.findViewById(R.id.others_services);
         create_post_button = view.findViewById(R.id.create_post_button);
+        doctor_category_layout = view.findViewById(R.id.doctor_category_layout);
         postList=new ArrayList<>();
+
+        // HIDE CATEGORY LIST FOR DOCTOR
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               User user = dataSnapshot.getValue(User.class);
+
+               if(user.getMemberType().equals("Doctor")){
+                   doctor_category_layout.setVisibility(View.GONE);
+               }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         create_post_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,12 +148,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-
-
-
-
         return view;
     }
 }

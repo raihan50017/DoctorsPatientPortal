@@ -77,6 +77,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/doctor_category_layout"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">

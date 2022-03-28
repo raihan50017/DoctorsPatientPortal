@@ -8,6 +8,7 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/post_button_bg.xml" value="0.165234375" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_appoint_taking.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_creating_post.xml" value="0.1546875" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_appointment_list.xml" value="0.135546875" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_detail_info.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_home.xml" value="0.142578125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctor_profile.xml" value="0.153125" />
@@ -21,8 +22,10 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_all_appointment.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_sign_in.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctor_appointment_item.xml" value="0.10234375" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctor_nav_header_layout.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctors_item.xml" value="0.153125" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_doctor_message.xml" value="0.113671875" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_message.xml" value="0.12239583333333333" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_notification.xml" value="0.20416666666666666" />

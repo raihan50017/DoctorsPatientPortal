@@ -7,16 +7,20 @@ public class Appointment {
     String date;
     String status;
     String serial;
+    String id;
 
     Appointment(){
 
     }
 
-    public Appointment(String d_id, String u_id, String type, String date, String status, String serial) {
+    public Appointment(String d_id, String u_id, String type, String date, String status, String serial, String id) {
         this.d_id = d_id;
         this.u_id = u_id;
         this.type = type;
         this.date = date;
+        this.id = id;
+        this.status = status;
+        this.serial = serial;
     }
 
     public String getD_id() {
@@ -40,5 +44,9 @@ public class Appointment {
     }
     public String getSerial() {
         return serial;
+    }
+
+    public String getId() {
+        return id;
     }
 }

@@ -7,8 +7,27 @@
     android:orientation="vertical"
     tools:context=".DoctorDetailInfoActivity">
 
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
         android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_height="wrap_content">
     <LinearLayout
         android:padding="10dp"
@@ -160,5 +179,5 @@
 
     </LinearLayout>
     </ScrollView>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
