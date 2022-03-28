@@ -183,6 +183,7 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/my_appointment"
                     android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:elevation="10dp"

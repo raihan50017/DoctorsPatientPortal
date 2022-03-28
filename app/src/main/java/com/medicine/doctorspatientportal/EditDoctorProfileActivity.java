@@ -188,6 +188,7 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
                     map.put("birthDate", birthDate);
                     map.put("gender", gender);
                     map.put("category", category);
+                    map.put("id",FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                     databaseReference.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

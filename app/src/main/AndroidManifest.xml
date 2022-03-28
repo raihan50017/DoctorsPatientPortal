@@ -10,18 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoctorsPatientPortal">
         <activity
+            android:name=".UserAllAppointmentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DoctorsListActivity"
+            android:exported="true" />
+        <activity
             android:name=".AppointTakingActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".EditDoctorProfileActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".DoctorDetailInfoActivity"
             android:exported="true" />
@@ -49,6 +48,11 @@
         <activity
             android:name=".UserSignInActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".HomeActivity"

@@ -7,10 +7,11 @@ public class User {
 
     };
 
-    public User(String fullName, String memberType, String mobile) {
+    public User(String fullName, String memberType, String mobile, String birthDate) {
         this.fullName = fullName;
         this.memberType = memberType;
         this.mobile = mobile;
+        this.birthDate = birthDate;
     }
 
     public String getFullName() {
@@ -21,11 +22,10 @@ public class User {
         return memberType;
     }
 
-    public String getBirthDate() {
-        return birthDate;
-    }
-
     public String getMobile() {
         return mobile;
+    }
+    public String getBirthDate() {
+        return birthDate;
     }
 }
