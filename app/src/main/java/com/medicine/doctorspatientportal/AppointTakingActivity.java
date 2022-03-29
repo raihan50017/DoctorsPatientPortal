@@ -1,9 +1,12 @@
 package com.medicine.doctorspatientportal;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -34,6 +38,7 @@ public class AppointTakingActivity extends AppCompatActivity {
     ArrayAdapter<String> appoint_type_menu_adapter;
     AutoCompleteTextView appoiment_type_select;
     String appointment_type;
+    MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,12 @@ public class AppointTakingActivity extends AppCompatActivity {
         appoiment_type_select = findViewById(R.id.appointment_type_select);
         appointment_type = appoiment_type_select.getText().toString();
         appointment_taking = findViewById(R.id.appointment_taking);
+
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         appointment_taking.setOnClickListener(new View.OnClickListener() {
@@ -114,4 +125,15 @@ public class AppointTakingActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -103,11 +103,14 @@ public class CreatingPostActivity extends AppCompatActivity {
                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
                                 String currentDateandTime = sdf.format(new Date());
                                 user.put("postTime",currentDateandTime);
-                    databaseref.child(String.valueOf(System.currentTimeMillis())).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                String id = ""+System.currentTimeMillis()+"";
+                                user.put("id",id);
+                    databaseref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
                                             Toast.makeText(CreatingPostActivity.this,"Post updated successfully", Toast.LENGTH_LONG).show();
+                                            startActivity(new Intent(CreatingPostActivity.this, HomeActivity.class));
                                         }
                                     }});
                 }

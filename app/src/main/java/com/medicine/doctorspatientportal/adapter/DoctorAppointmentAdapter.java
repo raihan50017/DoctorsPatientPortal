@@ -1,9 +1,11 @@
 package com.medicine.doctorspatientportal.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.medicine.doctorspatientportal.DoctorAppointmentDetailsActivity;
 import com.medicine.doctorspatientportal.R;
 import com.medicine.doctorspatientportal.model.Appointment;
 import com.medicine.doctorspatientportal.model.Doctor;
@@ -73,9 +76,9 @@ public class DoctorAppointmentAdapter extends RecyclerView.Adapter <DoctorAppoin
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(context, AppointTakingActivity.class);
-//                intent.putExtra("d_id", doctor.getId());
-//                context.startActivity(intent);
+                Intent intent=new Intent(context, DoctorAppointmentDetailsActivity.class);
+                intent.putExtra("id", appointment.getId());
+                context.startActivity(intent);
             }
         });
 
@@ -83,7 +86,7 @@ public class DoctorAppointmentAdapter extends RecyclerView.Adapter <DoctorAppoin
 
     @Override
     public int getItemCount() {
-        return 0;
+        return  appointmentList.size();
     }
 
 }

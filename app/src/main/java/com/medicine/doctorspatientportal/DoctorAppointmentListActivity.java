@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ import com.medicine.doctorspatientportal.adapter.AppointmentAdapter;
 import com.medicine.doctorspatientportal.adapter.DoctorAppointmentAdapter;
 import com.medicine.doctorspatientportal.model.Appointment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorAppointmentListActivity extends AppCompatActivity {
@@ -37,6 +39,7 @@ public class DoctorAppointmentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_appointment_list);
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerView);
+        appointmentList = new ArrayList<>();
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();

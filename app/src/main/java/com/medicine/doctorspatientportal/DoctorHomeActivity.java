@@ -79,6 +79,10 @@ public class DoctorHomeActivity extends AppCompatActivity {
                     startActivity(new Intent(DoctorHomeActivity.this, DoctorProfileActivity.class));
 
                 }
+                if(item.getItemId() == R.id.my_appointment){
+                    startActivity(new Intent(DoctorHomeActivity.this, DoctorAppointmentListActivity.class));
+
+                }
                 if(item.getItemId() == R.id.logOut){
                     Toast.makeText(DoctorHomeActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
                     FirebaseAuth.getInstance().signOut();
