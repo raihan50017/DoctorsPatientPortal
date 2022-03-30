@@ -73,7 +73,7 @@ public class AppointTakingActivity extends AppCompatActivity {
                     appointment.put("d_id",intent.getStringExtra("d_id"));
                     appointment.put("status","Not seen");
                     appointment.put("serial","0");
-                    String id =  ""+System.currentTimeMillis()+"";
+                    String id =  ""+System.currentTimeMillis()+""+intent.getStringExtra("d_id")+FirebaseAuth.getInstance().getCurrentUser().getUid();
                     appointment.put("id",id);
                     databaseReference.child(String.valueOf(id)).setValue(appointment);
 

@@ -58,6 +58,8 @@ public class DoctorsListActivity extends AppCompatActivity {
                 for(DataSnapshot value: dataSnapshot.getChildren()){
                     Doctor doctor=value.getValue(Doctor.class);
 
+                    assert doctor != null;
+
                     if(doctor.getCategory().equals(category)){
                         doctorList.add(doctor);
                     }

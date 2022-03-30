@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoctorsPatientPortal">
         <activity
+            android:name=".UserAppointmentDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditUserMoreInfoActivity"
             android:exported="true" />
         <activity

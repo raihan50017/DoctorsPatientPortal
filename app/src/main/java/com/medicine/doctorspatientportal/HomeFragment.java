@@ -27,6 +27,8 @@ import com.medicine.doctorspatientportal.model.Post;
 import com.medicine.doctorspatientportal.model.User;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -145,6 +147,9 @@ public class HomeFragment extends Fragment {
                     Post post=snapshot.getValue(Post.class);
                     postList.add(post);
                 }
+
+                Collections.reverse(postList);
+
                 post_view = view.findViewById(R.id.post_view);
                 adapter = new PostAdapter(postList, getContext());
                 LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());

@@ -103,7 +103,7 @@ public class CreatingPostActivity extends AppCompatActivity {
                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
                                 String currentDateandTime = sdf.format(new Date());
                                 user.put("postTime",currentDateandTime);
-                                String id = ""+System.currentTimeMillis()+"";
+                                String id = ""+System.currentTimeMillis()+""+firebaseUser.getUid();
                                 user.put("id",id);
                     databaseref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override

@@ -17,8 +17,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.medicine.doctorspatientportal.AppointTakingActivity;
+import com.medicine.doctorspatientportal.DoctorAppointmentDetailsActivity;
 import com.medicine.doctorspatientportal.DoctorsListActivity;
 import com.medicine.doctorspatientportal.R;
+import com.medicine.doctorspatientportal.UserAppointmentDetailsActivity;
 import com.medicine.doctorspatientportal.model.Appointment;
 import com.medicine.doctorspatientportal.model.Doctor;
 import com.medicine.doctorspatientportal.viewHolder.AppointmentViewHolder;
@@ -77,9 +79,9 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(context, AppointTakingActivity.class);
-//                intent.putExtra("d_id", doctor.getId());
-//                context.startActivity(intent);
+                Intent intent=new Intent(context, UserAppointmentDetailsActivity.class);
+                intent.putExtra("id", appointment.getId());
+                context.startActivity(intent);
             }
         });
     }

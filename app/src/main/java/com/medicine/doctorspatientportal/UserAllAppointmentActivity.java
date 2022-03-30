@@ -22,6 +22,7 @@ import com.medicine.doctorspatientportal.model.Appointment;
 import com.medicine.doctorspatientportal.model.Doctor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserAllAppointmentActivity extends AppCompatActivity {
@@ -57,6 +58,8 @@ public class UserAllAppointmentActivity extends AppCompatActivity {
                         appointmentList.add(appointment);
                     }
                 }
+
+                Collections.reverse(appointmentList);
 
                 my_appointment_recycler_view = findViewById(R.id.my_appointment_recycler_view);
                 adapter=new AppointmentAdapter(appointmentList, UserAllAppointmentActivity.this);
