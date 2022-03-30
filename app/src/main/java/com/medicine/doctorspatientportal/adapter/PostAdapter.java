@@ -53,6 +53,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         Post post=posts.get(position);
         holder.card_post_text.setText(post.getPostText());
         holder.card_post_time.setText(post.getPostTime());
+
         //holder.card_post_like.setText(post.getLike());
         //holder.card_post_comment.setText(post.getComment());
 //        if(post.getImgUrl().equals("default")){
@@ -69,6 +70,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user=snapshot.getValue(User.class);
                 Objects.requireNonNull(holder).card_post_user_name.setText( user.getFullName());
+                Glide.with(context).load(user.getImgUrl()).placeholder(R.drawable.avatar).into(holder.card_post_user_image);
+
             }
 
             @Override

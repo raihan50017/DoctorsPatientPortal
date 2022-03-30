@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,8 @@ import com.medicine.doctorspatientportal.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class HomeFragment extends Fragment {
 
@@ -41,6 +44,7 @@ public class HomeFragment extends Fragment {
     ArrayList<Post> postList;
     DatabaseReference databaseReference;
     LinearLayout doctor_category_layout;
+    CircleImageView profile_image;
 
 
     public HomeFragment() {
@@ -60,6 +64,8 @@ public class HomeFragment extends Fragment {
         create_post_button = view.findViewById(R.id.create_post_button);
         doctor_category_layout = view.findViewById(R.id.doctor_category_layout);
         postList=new ArrayList<>();
+        profile_image = view.findViewById(R.id.profile_image);
+
 
         // HIDE CATEGORY LIST FOR DOCTOR
 
@@ -71,7 +77,10 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                User user = dataSnapshot.getValue(User.class);
 
-               if(user.getMemberType().equals("Doctor")){
+                Glide.with(getContext()).load(user.getImgUrl()).placeholder(R.drawable.avatar).into(profile_image);
+
+
+                if(user.getMemberType().equals("Doctor")){
                    doctor_category_layout.setVisibility(View.GONE);
                }
 

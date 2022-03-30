@@ -17,6 +17,8 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctors_category_list.xml" value="0.15" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_doctors_list.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_edit_doctor_profile.xml" value="0.1" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_edit_user_more_info.xml" value="0.142578125" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_edit_user_profile.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_home.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
@@ -28,6 +30,7 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctor_nav_header_layout.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/doctors_item.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_doctor_message.xml" value="0.113671875" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_doctor_profile.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_message.xml" value="0.12239583333333333" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/fragment_notification.xml" value="0.20416666666666666" />

@@ -138,6 +138,7 @@ public class UserSignUpActivity extends AppCompatActivity {
                                 user.put("birthDate", birth_date);
                                 user.put("gender", item);
                                 user.put("memberType", membertype);
+                                user.put("imgUrl", "https://firebasestorage.googleapis.com/v0/b/doctorspatientportal.appspot.com/o/user%2Favatar.png?alt=media&token=c39e00fd-8cee-4ad7-8460-440ec3564d56");
                                 databaseref.child(firebaseUser.getUid()).setValue(user);
                                 Intent intent = new Intent(UserSignUpActivity.this, UserSignInActivity.class);
                                 startActivity(intent);
