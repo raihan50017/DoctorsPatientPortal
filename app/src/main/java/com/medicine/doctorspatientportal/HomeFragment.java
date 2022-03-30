@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.medicine.doctorspatientportal.adapter.PostAdapter;
+import com.medicine.doctorspatientportal.adapter.UserAdapter;
 import com.medicine.doctorspatientportal.model.Post;
 import com.medicine.doctorspatientportal.model.User;
 
@@ -67,6 +68,9 @@ public class HomeFragment extends Fragment {
         doctor_category_layout = view.findViewById(R.id.doctor_category_layout);
         postList=new ArrayList<>();
         profile_image = view.findViewById(R.id.profile_image);
+
+
+        //CHAT
 
 
         // HIDE CATEGORY LIST FOR DOCTOR

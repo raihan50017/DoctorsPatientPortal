@@ -49,6 +49,8 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -63,14 +65,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:onClick="editDoctorProfile"
-                                android:id="@+id/edit_doctor_profile"
+                            <Button
+                                android:id="@+id/chat_start"
+                                android:layout_marginLeft="10dp"
+                                android:text="Live CHAT"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:src="@drawable/ic_baseline_edit_24_blue"
-                                tools:ignore="OnClick" />
+                                android:layout_height="wrap_content"/>
+
                         </LinearLayout>
                     </LinearLayout>
 

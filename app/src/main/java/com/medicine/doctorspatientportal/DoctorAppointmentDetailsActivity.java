@@ -32,6 +32,7 @@ public class DoctorAppointmentDetailsActivity extends AppCompatActivity {
     TextView appointment_serial;
     Button approve_button;
     Button cancel_button;
+    Button chat_start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +47,35 @@ public class DoctorAppointmentDetailsActivity extends AppCompatActivity {
         appointment_serial = findViewById(R.id.appointment_serial);
         approve_button = findViewById(R.id.approve_button);
         cancel_button = findViewById(R.id.cancel_button);
+        chat_start = findViewById(R.id.chat_start);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+        chat_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(getIntent().getStringExtra("id"));
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                        Intent intent = new Intent(DoctorAppointmentDetailsActivity.this, ChatActivity.class);
+                        intent.putExtra("id",appointment.getU_id());
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
 
 
         // Toast.makeText(DoctorAppointmentDetailsActivity.this,getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
