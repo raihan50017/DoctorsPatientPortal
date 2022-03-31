@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content">
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="match_parent"
+                        android:id="@+id/profile_image"
                         android:src="@drawable/d1"
                         android:layout_height="160dp"/>
                 </LinearLayout>
@@ -63,22 +64,40 @@
                     android:layout_weight=".6"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/username"
                         android:textSize="24dp"
                         android:textStyle="bold"
                         android:layout_gravity="center"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Dr. Nabil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:textSize="18dp"
+                        android:id="@+id/degree"
+                        android:textSize="16dp"
                         android:layout_gravity="center"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="MBBS, FCPS, Part-II (cardiology medical)"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:layout_marginTop="8dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:text="Chamber Location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/chamber"
+                        android:textSize="16dp"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:text="Medicine Corner Trishal, Trishal Bazar, Trishal Mymensingh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
                         android:layout_marginTop="10dp"
+                        android:id="@+id/status"
                         android:textSize="18dp"
                         android:textStyle="bold"
                         android:layout_gravity="center"

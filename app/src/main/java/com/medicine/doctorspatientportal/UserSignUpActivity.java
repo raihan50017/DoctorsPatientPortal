@@ -140,6 +140,27 @@ public class UserSignUpActivity extends AppCompatActivity {
                                 user.put("memberType", membertype);
                                 user.put("imgUrl", "https://firebasestorage.googleapis.com/v0/b/doctorspatientportal.appspot.com/o/user%2Favatar.png?alt=media&token=c39e00fd-8cee-4ad7-8460-440ec3564d56");
                                 databaseref.child(firebaseUser.getUid()).setValue(user);
+
+                                if(membertype == "Doctor"){
+                                    Map<String, Object> doctor = new HashMap<String, Object>();
+                                    doctor.put("fullName",fullname_input);
+                                    doctor.put("mobile", mobile_input);
+                                    doctor.put("gender", item);
+                                    doctor.put("address", "");
+                                    doctor.put("category", "");
+                                    doctor.put("chamber", "");
+                                    doctor.put("college", "");
+                                    doctor.put("degree", "");
+                                    doctor.put("id", firebaseUser.getUid());
+                                    doctor.put("image", "Default");
+                                    doctor.put("status","Available");
+                                    doctor.put("workPlace","");
+                                    doctor.put("birthDate", birth_date);
+                                    DatabaseReference databaseref2 = database.getReference("doctors");
+                                    databaseref2.child(firebaseUser.getUid()).setValue(doctor);
+
+                                }
+
                                 Intent intent = new Intent(UserSignUpActivity.this, UserSignInActivity.class);
                                 startActivity(intent);
                             }

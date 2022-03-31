@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".DoctorDetailInfoActivity">
 
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,6 +33,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:elevation="10dp"
@@ -65,13 +66,56 @@
                         <ImageView
                             android:onClick="editDoctorProfile"
                             android:id="@+id/edit_doctor_profile"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:src="@drawable/ic_baseline_edit_24_blue" />
                     </LinearLayout>
                 </LinearLayout>
 
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:elevation="10dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="4dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_gravity="start"
+                        android:src="@drawable/d1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="90dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:layout_weight=".5"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/change_profile_image"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_baseline_edit_24_blue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -97,6 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/user_name"
                     android:text="Dr. Nabil"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"
@@ -111,6 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/degree"
                     android:text="MBBBS"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"
@@ -125,6 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/address"
                     android:text="Trishal Charpara"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"
@@ -139,6 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/category"
                     android:text="Cardiology"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"
@@ -153,6 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/college"
                     android:text="MMC"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"
@@ -167,6 +216,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/workingplace"
+                    android:text="RMC"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Chamber"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/chamber"
+                    android:text="RMC"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Birthdate"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/birthdate"
                     android:text="RMC"
                     android:textSize="16dp"
                     android:layout_marginBottom="10dp"

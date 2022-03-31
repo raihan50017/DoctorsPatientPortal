@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.medicine.doctorspatientportal.model.Doctor;
 import com.medicine.doctorspatientportal.model.User;
 
 import java.util.HashMap;
@@ -54,7 +55,7 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
     ArrayAdapter<String> categoryadapter;
     AutoCompleteTextView genderselect;
     AutoCompleteTextView categoryselect;
-    TextInputEditText fullnameinput, degreeinput, addressinput, collegeinput, workingplaceinput, mobileinput;
+    TextInputEditText fullnameinput, degreeinput, addressinput, collegeinput, workingplaceinput, mobileinput, chamberinput;
 
     DatabaseReference databaseReference;
     ProgressDialog progressDialog;
@@ -85,9 +86,7 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
         dateshow = findViewById(R.id.editDateshow);
         genderselect = findViewById(R.id.editGenderselect);
         categoryselect = findViewById(R.id.category_select);
-
-        genderItem = genderselect.getText().toString();
-        categoryitem = categoryselect.getText().toString();
+        chamberinput = findViewById(R.id.chamberinput);
 
         databaseReference= FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -99,6 +98,28 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
                 mobileinput.setText(user.getMobile());
                 birth_date = user.getBirthDate();
                 dateshow.setText(user.getBirthDate());
+                genderItem = user.getGender();
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("doctors").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                        degreeinput.setText(doctor.getDegree());
+                        addressinput.setText(doctor.getAddress());
+                        collegeinput.setText(doctor.getCollege());
+                        workingplaceinput.setText(doctor.getWorkPlace());
+                        categoryitem = doctor.getCategory();
+                        chamberinput.setText(doctor.getChamber());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -166,18 +187,19 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
         update_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name, mobile, degree, address, college, workPlace, birthDate, gender, category;
+                String name, mobile, degree, address, college, workPlace, birthDate, gender, category, chamber;
                 name=fullnameinput.getText().toString().trim();
                 mobile=mobileinput.getText().toString().trim();
                 degree=degreeinput.getText().toString().trim();
                 address=addressinput.getText().toString().trim();
                 college=collegeinput.getText().toString().trim();
                 workPlace=workingplaceinput.getText().toString().trim();
+                chamber = chamberinput.getText().toString().trim();
                 birthDate=birth_date;
                 gender=genderItem;
                 category=categoryitem;
 
-                if(checkError(name, mobile, degree, address, college, workPlace, birthDate, gender, category)){
+                if(checkError(name, mobile, degree, address, college, workPlace, birthDate, gender, category, chamber)){
                     Toast.makeText(EditDoctorProfileActivity.this, "There is a errors", Toast.LENGTH_LONG).show();
                 }
                 else{
@@ -198,6 +220,7 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
                     map.put("birthDate", birthDate);
                     map.put("gender", gender);
                     map.put("category", category);
+                    map.put("chamber", chamber);
                     map.put("id",FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                     databaseReference.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -206,6 +229,7 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 progressDialog.dismiss();
                                 Toast.makeText(EditDoctorProfileActivity.this, "Update Successfull", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(EditDoctorProfileActivity.this, DoctorDetailInfoActivity.class));
                             }
                             else {
                                 progressDialog.dismiss();
@@ -222,11 +246,14 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
 
     }
 
-    private boolean checkError(String name, String mobile, String degree, String address, String college, String workPlace, String birthDate, String gender, String category) {
+    private boolean checkError(String name, String mobile, String degree, String address, String college, String workPlace, String birthDate, String gender, String category, String chamber) {
 
-        if(name.isEmpty() || mobile.isEmpty() || degree.isEmpty() || address.isEmpty() || college.isEmpty() || workPlace.isEmpty() || birthDate==null|| gender.isEmpty()||category.isEmpty()){
+        if(name.isEmpty() || mobile.isEmpty() || degree.isEmpty() || address.isEmpty() || college.isEmpty() || workPlace.isEmpty() || birthDate==null|| gender.isEmpty()||category.isEmpty()||chamber.isEmpty()){
             if (name.isEmpty()){
                 fullnameinput.setError("Full name required");
+            }
+            if (chamber.isEmpty()){
+                chamberinput.setError("Full name required");
             }
             if (mobile.isEmpty()){
                 mobileinput.setError("Full name required");
@@ -242,6 +269,9 @@ public class EditDoctorProfileActivity extends AppCompatActivity {
             }
             if (workPlace.isEmpty()){
                 workingplaceinput.setError("Full name required");
+            }
+            if (category.isEmpty()){
+                Toast.makeText(EditDoctorProfileActivity.this,"Select Category", Toast.LENGTH_LONG);
             }
             if (birthDate==null){
                 Toast.makeText(EditDoctorProfileActivity.this, "Birth Date Input Required", Toast.LENGTH_SHORT).show();

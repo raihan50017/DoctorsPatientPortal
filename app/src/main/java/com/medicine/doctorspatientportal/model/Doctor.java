@@ -1,13 +1,13 @@
 package com.medicine.doctorspatientportal.model;
 
 public class Doctor {
-    String address, category, college, degree, fullName, gender, mobile, workPlace, image, id;
+    String address, category, college, degree, fullName, gender, mobile, workPlace, image, id, chamber, status, birthDate;
 
 
     public Doctor() {
     }
 
-    public Doctor(String address, String image, String category, String college, String degree, String fullName, String gender, String mobile, String workPlace, String id) {
+    public Doctor(String address, String image, String category, String college, String degree, String fullName, String gender, String mobile, String workPlace, String id, String chamber, String status, String birthDate) {
         this.address = address;
         this.category = category;
         this.college = college;
@@ -18,6 +18,9 @@ public class Doctor {
         this.workPlace = workPlace;
         this.image = image;
         this.id = id;
+        this.chamber = chamber;
+        this.status = status;
+        this.birthDate = birthDate;
     }
 
     public String getAddress() {
@@ -56,7 +59,19 @@ public class Doctor {
         return id;
     }
 
+    public String getChamber() {
+        return chamber;
+    }
+
     public String getImage() {
         return image;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
     }
 }

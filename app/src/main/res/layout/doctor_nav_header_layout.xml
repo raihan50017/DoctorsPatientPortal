@@ -18,6 +18,7 @@
             android:layout_marginTop="20dp"
             android:layout_height="80dp">
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/drawer_header_profile_image"
                 android:layout_width="wrap_content"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#ccc"
@@ -28,6 +29,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/drawer_header_username"
             android:textSize="24dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"

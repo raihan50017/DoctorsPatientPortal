@@ -16,10 +16,10 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
     <ImageView
-        android:layout_below="@+id/toolbar"
         android:id="@+id/cover_photo"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
         android:src="@drawable/d1" />
@@ -59,7 +59,6 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            android:onClick="viewMore"
             android:id="@+id/view_more_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

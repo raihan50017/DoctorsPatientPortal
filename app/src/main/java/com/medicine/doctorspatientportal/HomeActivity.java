@@ -12,15 +12,26 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.medicine.doctorspatientportal.model.User;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
     MaterialToolbar toolbar;
@@ -28,6 +39,8 @@ public class HomeActivity extends AppCompatActivity {
     NavigationView navigationView;
     ViewPager viewPager;
     TabLayout tabLayout;
+    CircleImageView drawer_header_image;
+    TextView drawer_header_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +103,31 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+
+                View header_view = navigationView.getHeaderView(0);
+
+                drawer_header_username = header_view.findViewById(R.id.drawer_header_username);
+                drawer_header_image = header_view.findViewById(R.id.drawer_header_profile_image);
+
+                drawer_header_username.setText(user.getFullName());
+                Glide.with(HomeActivity.this).load(user.getImgUrl()).placeholder(R.drawable.avatar).into(drawer_header_image);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
