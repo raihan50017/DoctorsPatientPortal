@@ -40,7 +40,7 @@ public class AppointTakingActivity extends AppCompatActivity {
 
     LinearLayout appointmentdate;
     TextView dateshow;
-    String appointment_date;
+    String appointment_date="";
     Button appointment_taking;
     String[] appointment_type_menu = {"Online", "Ofline"};
     ArrayAdapter<String> appoint_type_menu_adapter;

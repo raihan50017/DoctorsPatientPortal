@@ -40,6 +40,10 @@ public class UserAppointmentDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_appointment_details);
 
+        if(getIntent().getStringExtra("id")==null){
+            finish();
+        }
+
         toolbar = findViewById(R.id.toolbar);
 
         appointment_patient_name = findViewById(R.id.appointment_patient_name);
@@ -76,12 +80,9 @@ public class UserAppointmentDetailsActivity extends AppCompatActivity {
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(getIntent().getStringExtra("id"));
 
                                 databaseReference.removeValue();
-                                flag = true;
-                                System.out.println("HHHHHHHHHH");
-                                Toast.makeText(UserAppointmentDetailsActivity.this, "Appointment deleted", Toast.LENGTH_SHORT).show();
                                 finish();
-
-
+                                flag = true;
+                                Toast.makeText(UserAppointmentDetailsActivity.this, "Appointment deleted", Toast.LENGTH_SHORT).show();
                             }
                         })
                 .show();
@@ -93,41 +94,48 @@ public class UserAppointmentDetailsActivity extends AppCompatActivity {
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(getIntent().getStringExtra("id"));
 
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(databaseReference!=null){
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                        Appointment appointment = dataSnapshot.getValue(Appointment.class);
 
-                    if (appointment==null){
-                        startActivity(new Intent(UserAppointmentDetailsActivity.this, UserAllAppointmentActivity.class));
+                        if (appointment==null){
+                            startActivity(new Intent(UserAppointmentDetailsActivity.this, UserAllAppointmentActivity.class));
+                        }
+
+                        //assert appointment !=null;
+                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("users").child(appointment.getU_id());
+                        if(databaseReference1!=null){
+                            databaseReference1.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    User user = dataSnapshot.getValue(User.class);
+                                    appointment_patient_name.setText(user.getFullName());
+                                    appointment_date.setText(appointment.getDate());
+                                    appointment_serial.setText(appointment.getSerial());
+                                    appointment_status.setText(appointment.getStatus());
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        }else {
+                            finish();
+                        }
                     }
 
-                    //assert appointment !=null;
-                    DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("users").child(appointment.getU_id());
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    databaseReference1.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            User user = dataSnapshot.getValue(User.class);
-                            appointment_patient_name.setText(user.getFullName());
-                            appointment_date.setText(appointment.getDate());
-                            appointment_serial.setText(appointment.getSerial());
-                            appointment_status.setText(appointment.getStatus());
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
+                    }
+                });
+            }else {
+                finish();
+            }
 
     }
 

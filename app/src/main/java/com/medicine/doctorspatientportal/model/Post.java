@@ -2,25 +2,38 @@ package com.medicine.doctorspatientportal.model;
 
 public class Post {
 
-    String uid;
-    String postTime;
-    String postText;
-    String imgUrl;
-    Integer comment;
-    Integer like;
+
+    String description;
     String id;
+    String imgUrl;
+    String pcomments;
+    String plike;
+    String ptime;
+    String title;
+    String udp;
+    String uemail;
+    String uid;
+    String uimage;
+    String uname;
+
+
 
     Post(){
 
     }
 
-    public Post(String uid, String postText, String imgUrl, Integer comment, Integer like, String postTime, String id) {
+    public Post(String uid, String uname, String uemail, String udp, String title, String uimage, String ptime, String description, String imgUrl, String pcomments, String plike, String id) {
         this.uid = uid;
-        this.postText = postText;
+        this.uname = uname;
+        this.uemail = uemail;
+        this.udp = udp;
+        this.title = title;
+        this.uimage = uimage;
+        this.ptime = ptime;
+        this.description = description;
         this.imgUrl = imgUrl;
-        this.comment = comment;
-        this.like = like;
-        this.postTime = postTime;
+        this.pcomments = pcomments;
+        this.plike = plike;
         this.id = id;
     }
 
@@ -28,27 +41,47 @@ public class Post {
         return uid;
     }
 
-    public String getPostTime() {
-        return postTime;
+    public String getUname() {
+        return uname;
     }
 
-    public String getPostText() {
-        return postText;
+    public String getUemail() {
+        return uemail;
+    }
+
+    public String getUdp() {
+        return udp;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getUimage() {
+        return uimage;
+    }
+
+    public String getPtime() {
+        return ptime;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getImgUrl() {
         return imgUrl;
     }
 
-    public Integer getComment() {
-        return comment;
+    public String getPcomments() {
+        return pcomments;
+    }
+
+    public String getPlike() {
+        return plike;
     }
 
     public String getId() {
         return id;
-    }
-
-    public Integer getLike() {
-        return like;
     }
 }

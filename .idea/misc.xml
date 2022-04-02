@@ -7,7 +7,11 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/background_right.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/border.xml" value="0.17592592592592593" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/card_bg.xml" value="0.165234375" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/edit.xml" value="0.165234375" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/ic_like.xml" value="0.105078125" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/ic_liked.xml" value="0.105078125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/drawable/post_button_bg.xml" value="0.165234375" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_add_blogs.xml" value="0.131640625" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_appoint_taking.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_approve_appointment.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_chat.xml" value="0.121484375" />
@@ -24,6 +28,9 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_edit_user_profile.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_home.xml" value="0.13229166666666667" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_my_post.xml" value="0.1" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_post_liked_by.xml" value="0.131640625" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_postdetails.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_take_appointment.xml" value="0.13333333333333333" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/activity_user_all_appointment.xml" value="0.153125" />
@@ -45,6 +52,7 @@
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/menu_adapter.xml" value="0.1671875" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/nav_header_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/post_view_item.xml" value="0.1" />
+        <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/row_comments.xml" value="0.1" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/test.xml" value="0.119921875" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/user_appointment_item.xml" value="0.153125" />
         <entry key="..\:/DoctorsPatientPortal/app/src/main/res/layout/user_item.xml" value="0.1" />

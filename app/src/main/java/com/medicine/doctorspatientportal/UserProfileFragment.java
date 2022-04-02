@@ -30,6 +30,7 @@ public class UserProfileFragment extends Fragment {
     CardView my_appointment;
     CircleImageView profile_image;
     TextView user_name;
+    CardView mypost;
 
 
     public UserProfileFragment() {
@@ -44,6 +45,17 @@ public class UserProfileFragment extends Fragment {
          my_appointment = view.findViewById(R.id.my_appointment);
          profile_image = view.findViewById(R.id.profile_image);
          user_name = view.findViewById(R.id.user_name);
+         mypost = view.findViewById(R.id.mypost);
+
+
+         mypost.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(getContext(), MyPostActivity.class);
+                 startActivity(intent);
+             }
+         });
+
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 

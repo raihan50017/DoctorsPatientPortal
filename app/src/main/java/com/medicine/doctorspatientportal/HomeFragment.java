@@ -142,7 +142,7 @@ public class HomeFragment extends Fragment {
 
         //SHOW POST
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("posts");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Posts");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

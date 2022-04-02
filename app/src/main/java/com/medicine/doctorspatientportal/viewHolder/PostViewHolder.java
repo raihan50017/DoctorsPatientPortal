@@ -1,6 +1,7 @@
 package com.medicine.doctorspatientportal.viewHolder;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +20,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     public TextView card_post_time;
     public TextView card_post_text, card_post_like, card_post_comment;
     public ImageView card_post_image;
-    public LinearLayout like, write_comment, share_post;
+    public LinearLayout write_comment, share_post;
+    public ImageView like;
+    public Button view_details;
 
     public PostViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -34,6 +37,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         like = itemView.findViewById(R.id.like);
         write_comment = itemView.findViewById(R.id.write_comment);
         share_post = itemView.findViewById(R.id.share_post);
+        view_details = itemView.findViewById(R.id.view_details);
 
     }
 }

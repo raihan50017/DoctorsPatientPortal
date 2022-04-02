@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.DuplicateTaskCompletionException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,11 +28,15 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.medicine.doctorspatientportal.model.User;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -83,41 +88,94 @@ public class CreatingPostActivity extends AppCompatActivity {
                 }else {
 
                     FirebaseAuth auth = FirebaseAuth.getInstance();
+                    firebaseUser = auth.getCurrentUser();
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference databaseref = database.getReference("posts");
+                    DatabaseReference databaseref = database.getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-                                firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-                                assert firebaseUser!=null;
-                                Map<String, Object> user = new HashMap<String, Object>();
-                                user.put("postText", post_text);
-                                if(imgUrl==null){
-                                    user.put("imgUrl", "default");
+                    databaseref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            User user = dataSnapshot.getValue(User.class);
+
+                            HashMap<Object, String> hashMap = new HashMap<>();
+                            hashMap.put("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            hashMap.put("uname", user.getFullName());
+                            hashMap.put("uemail", "");
+                            hashMap.put("udp", "");
+                            hashMap.put("title", "");
+                            hashMap.put("description", post_text);
+                            hashMap.put("uimage", imgUrl);
+
+                            if(imgUrl==null){
+                                    hashMap.put("imgUrl", "default");
                                 }
                                 else{
-                                    user.put("imgUrl", imgUrl);
+                                    hashMap.put("imgUrl", imgUrl);
                                 }
 
-                                user.put("like", 0);
-                                user.put("comment", 0);
-                                user.put("uid", firebaseUser.getUid());
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
-                                String currentDateandTime = sdf.format(new Date());
-                                user.put("postTime",currentDateandTime);
-                                String id = ""+System.currentTimeMillis()+""+firebaseUser.getUid();
-                                user.put("id",id);
-                    databaseref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(CreatingPostActivity.this,"Post updated successfully", Toast.LENGTH_LONG).show();
-                                            startActivity(new Intent(CreatingPostActivity.this, HomeActivity.class));
-                                        }
-                                    }});
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+                            String currentDateandTime = sdf.format(new Date());
+
+                            hashMap.put("ptime", currentDateandTime);
+                            hashMap.put("plike", "0");
+                            hashMap.put("pcomments", "0");
+                            String id = ""+System.currentTimeMillis()+""+firebaseUser.getUid();
+                            hashMap.put("id",id);
+
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+                            databaseReference.child(id).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(CreatingPostActivity.this,"Post updated successfully", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(CreatingPostActivity.this, HomeActivity.class));
+                                    }
+                                }
+                            });
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+//                                firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+//                                assert firebaseUser!=null;
+//
+//
+//                                Map<String, Object> user = new HashMap<String, Object>();
+//                                user.put("postText", post_text);
+//                                if(imgUrl==null){
+//                                    user.put("imgUrl", "default");
+//                                }
+//                                else{
+//                                    user.put("imgUrl", imgUrl);
+//                                }
+//
+//                                user.put("like", "0");
+//                                user.put("comment", "0");
+//                                user.put("uid", firebaseUser.getUid());
+//
+//
+//
+//                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+//                                String currentDateandTime = sdf.format(new Date());
+//                                user.put("postTime",currentDateandTime);
+//                                String id = ""+System.currentTimeMillis()+""+firebaseUser.getUid();
+//                                user.put("id",id);
+//                    databaseref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<Void> task) {
+//                                        if(task.isSuccessful()){
+//                                            Toast.makeText(CreatingPostActivity.this,"Post updated successfully", Toast.LENGTH_LONG).show();
+//                                            startActivity(new Intent(CreatingPostActivity.this, HomeActivity.class));
+//                                    }
+//                           }});
                 }
             }
         });
-
-
     }
 
 //IMAGE UPLOAD

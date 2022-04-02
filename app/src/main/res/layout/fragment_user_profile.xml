@@ -6,396 +6,422 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".UserProfileFragment">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="90dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".30"
-                android:layout_height="wrap_content">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/d1"
-                    app:civ_border_color="#ccc"
-                    app:civ_border_width="2dp"
-                    />
+                    android:layout_weight=".30">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/d1"
+                        app:civ_border_color="#ccc"
+                        app:civ_border_width="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".70">
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="MD. Abu Raihan"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".70"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingRight="3dp">
 
-                <TextView
-                    android:textSize="24dp"
-                    android:paddingLeft="10dp"
-                    android:textStyle="bold"
-                    android:id="@+id/user_name"
-                    android:text="MD. Abu Raihan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refund Amount"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#F86923">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/d1"></de.hdodenhof.circleimageview.CircleImageView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="right"
+                                android:text="0.00"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    android:paddingLeft="3dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total treatment taken"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#154F89">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/d1"></de.hdodenhof.circleimageview.CircleImageView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="right"
+                                android:text="0.00"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <!--FIRST COLUMN-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    android:paddingRight="5dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/mypost"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Post" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/my_appointment"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_sticky_note_2_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="My Appointments" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_access_time_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Account History" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Rating" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <!--SECOND COLUMN-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="My relative" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="My prescription" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Complains" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#E1C6C4"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_supervisor_account_38" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Cupon user" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:paddingRight="3dp"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".5"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Refund Amount"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="#F86923"
-                    android:layout_height="70dp">
-
-                    <LinearLayout
-                        android:padding="5dp"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="match_parent">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="60dp"
-                            android:src="@drawable/d1"
-                            android:layout_height="match_parent"></de.hdodenhof.circleimageview.CircleImageView>
-                        <TextView
-                            android:text="0.00"
-                            android:gravity="right"
-                            android:layout_gravity="center"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:paddingLeft="3dp"
-                android:layout_width="0dp"
-                android:layout_weight=".5"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Total treatment taken"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="#154F89"
-                    android:layout_height="70dp">
-
-                    <LinearLayout
-                        android:padding="5dp"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="match_parent">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="60dp"
-                            android:src="@drawable/d1"
-                            android:layout_height="match_parent"></de.hdodenhof.circleimageview.CircleImageView>
-                        <TextView
-                            android:text="0.00"
-                            android:gravity="right"
-                            android:layout_gravity="center"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-<!--FIRST COLUMN-->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".5"
-                android:paddingRight="5dp"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="Patient info"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/my_appointment"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_sticky_note_2_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="My Appointments"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_access_time_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="Account History"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="Rating"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-<!--SECOND COLUMN-->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:orientation="vertical"
-                android:layout_weight=".5"
-                android:paddingLeft="5dp"
-                android:layout_height="wrap_content">
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="My relative"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="My prescription"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="Complains"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:elevation="10dp"
-                    android:backgroundTint="#E1C6C4"
-                    android:layout_height="110dp">
-                    <LinearLayout
-                        android:padding="8dp"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_baseline_supervisor_account_38"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="Cupon user"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
 
 </LinearLayout>

@@ -88,10 +88,11 @@
                     android:layout_width="0dp"
                     android:layout_weight=".5"
                     android:layout_height="wrap_content">
+
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:src="@drawable/ic_baseline_thumb_up_24"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_thumb_up_24" />
                     <TextView
                         android:id="@+id/card_post_like"
                         android:text="7"
@@ -121,11 +122,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:id="@+id/like"
                 android:layout_width="0dp"
                 android:layout_weight=".33"
                 android:layout_height="match_parent">
                 <ImageView
+                    android:id="@+id/like"
                     android:layout_width="wrap_content"
                     android:src="@drawable/ic_baseline_thumb_up_28"
                     android:layout_height="wrap_content"/>
@@ -178,27 +179,12 @@
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".75"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:hint="Write comment"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight=".25"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="start"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_baseline_send_32"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
+           <Button
+               android:text="View More Info"
+               android:id="@+id/view_details"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </LinearLayout>
 
