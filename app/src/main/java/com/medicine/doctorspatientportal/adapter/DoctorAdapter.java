@@ -11,9 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.medicine.doctorspatientportal.AppointTakingActivity;
 import com.medicine.doctorspatientportal.R;
 import com.medicine.doctorspatientportal.model.Doctor;
+import com.medicine.doctorspatientportal.model.User;
 import com.medicine.doctorspatientportal.viewHolder.DoctorViewHolder;
 
 import java.util.List;
@@ -44,6 +50,22 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
         assert doctor!=null;
         holder.doctorName.setText(doctor.getFullName());
         holder.doctorCollege.setText(doctor.getCollege());
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(doctor.getId());
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                Glide.with(context).load(user.getImgUrl()).placeholder(R.drawable.avatar).into(holder.doctorImage);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
